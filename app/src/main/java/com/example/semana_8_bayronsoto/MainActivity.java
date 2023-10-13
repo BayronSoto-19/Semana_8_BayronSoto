@@ -59,11 +59,10 @@ public class MainActivity extends AppCompatActivity {
                 float[] rotationMatrix = new float[9];
                 float[] orientationValues = new float[3];
 
-                if (sensorEvent.sensor.getType() == Sensor.TYPE_ROTATION_VECTOR) {
-                    SensorManager.getRotationMatrixFromVector(rotationMatrix, sensorEvent.values);
-                    SensorManager.getOrientation(rotationMatrix, orientationValues);
-                    float angleZ = (float) Math.toDegrees(orientationValues[2]);
-                }
+                SensorManager.getRotationMatrixFromVector(rotationMatrix, sensorEvent.values);
+                SensorManager.getOrientation(rotationMatrix, orientationValues);
+                float angleZ = (float) Math.toDegrees(orientationValues[2]);
+
             }
 
             @Override
